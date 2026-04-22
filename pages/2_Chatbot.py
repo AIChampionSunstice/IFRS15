@@ -209,7 +209,7 @@ Instructions :
         }
 
         response = aws.bedrock_client.invoke_model(
-            modelId='global.anthropic.claude-opus-4-6-v1'
+            modelId='global.anthropic.claude-opus-4-6-v1',
             body=json.dumps(request_body)
         )
 
