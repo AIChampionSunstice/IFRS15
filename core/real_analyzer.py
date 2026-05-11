@@ -326,7 +326,7 @@ def analyze_contract_real(
     result = compute_arr_tcv(result)      # ← Calcul ARR/TCV après format_duration_human
     result = validate_result_quality(result)
 
-    progress_bar.progress(1.0, text="Analyse terminée ✅")
+    progress_bar.progress(1.0, text="Analyse terminée")
     status_text.text("Analyse terminée avec succès")
 
     evidence['uploaded_files'] = uploaded_files
