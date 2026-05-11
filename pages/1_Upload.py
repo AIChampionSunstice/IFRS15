@@ -10,6 +10,8 @@ import re
 import contextlib
 from io import StringIO
 
+st.set_page_config(page_title="Upload & Analyse", layout="wide")
+
 @contextlib.contextmanager
 def suppress_stdout_stderr():
     old_stdout = sys.stdout
@@ -58,8 +60,6 @@ from core.visualizations import IFRS15Visualizer
 from core.real_analyzer import analyze_contract_real
 from core.client_matcher import load_client_list, group_pdfs_by_client_smart, identify_client_for_pdf, match_zip_name_to_client
 from core.pdf_annotate import annotate_pdf_with_sources, merge_pdfs
-
-st.set_page_config(page_title="Upload & Analyse", layout="wide")
 
 SessionManager.init_session()
 client_list = load_client_list()
