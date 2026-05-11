@@ -191,7 +191,8 @@ if st.session_state.analysis_results is not None:
                 st.divider()
                 st.markdown("####  Preuves extraites")
                 sources = result_row['sources']
-                with st.expander("Voir les preuves détaillées", expanded=False):
+                with st.container():
+                    st.markdown("**Preuves détaillées :**")
                     for field_name, source_text in sources.items():
                         if source_text and source_text not in ["Not found", "N/A", ""]:
                             st.markdown(f"**{field_name}**")
