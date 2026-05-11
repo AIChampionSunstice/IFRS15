@@ -873,27 +873,39 @@ CHAMPS 11-17 : STANDARD
 
 **16. SETUP FEES (Yes/No) - DÉTECTION EXHAUSTIVE**
 
-**SECTIONS À SCANNER :**
-1. "Professional Services"
-2. "One-time Fees"
-3. "Project Costs"
-4. "Onboarding & Training"
-5. Tableaux avec "Non-recurring" ou "One-time"
+**DÉFINITION IFRS 15 : Les Setup Fees sont des frais ONE-TIME à montant FIXE
+liés à l'activation/onboarding du service SaaS.**
 
-**MOTS-CLÉS À CHERCHER :**
-Formation, Training, Onboarding, Setup fees, Installation,
-Configuration, Paramétrage, Integration, Kick-off,
-Consulting (si lié au setup)
+**INCLURE (Setup Fees = Yes) :**
+- "Setup fees", "Onboarding fees", "Frais d'activation"
+- Formation initiale à prix FIXE et défini
+- Installation/configuration à montant FIXE
+- Kick-off à prix fixe
+- Frais de paramétrage à montant défini
 
-**SI TROUVÉ au moins un de ces éléments → Setup fees = Yes**
-**SI RIEN trouvé → Setup fees = No**
+**EXCLURE ABSOLUMENT (Setup Fees = No pour ces éléments) :**
+- Prestations Time & Material (T&M) → obligation séparée variable
+- Scoping, Analysis, implémentation facturés au temps passé
+- "Phase 1 Scoping", "Foundation", "Data Stream" en T&M
+- Tout montant variable selon avancement ou temps passé
+- Prestations de mise en œuvre / consulting projet
+- Montants présentés comme "après remise X%" sur des prestations projet
+
+**RÈGLE DE DÉCISION :**
+- Montant fixe + clairement lié à l'activation SaaS → Yes
+- Montant T&M ou variable ou lié à l'implémentation projet → No
+- Si doute → No
+
+**SI TROUVÉ au moins un élément éligible → Setup fees = Yes**
+**SI RIEN trouvé ou seulement du T&M → Setup fees = No**
 
 **17. SETUP FEES €**
-- **EXTRACTION:**
-  1. Cherche montant à côté des mots-clés setup
-  2. Si plusieurs lignes → ADDITIONNE
-  
-- Si aucun montant trouvé → 0
+- **EXTRACTION :**
+  1. Cherche uniquement les montants FIXES liés aux Setup Fees éligibles
+  2. EXCLURE les montants T&M et prestations projet
+  3. Si plusieurs lignes éligibles → ADDITIONNE
+
+- Si aucun montant éligible trouvé → 0
 
 ═══════════════════════════════════════════════════════════════════
  NOUVEAU CHAMP - MRR STANDARD (PRIX PLEIN MENSUEL)
