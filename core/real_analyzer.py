@@ -7,6 +7,102 @@ import re
 def _norm(s: str) -> str:
     return (s or "").strip().lower()
 
+def _duration_to_months(duration_str: str) -> int:
+    """Convertit une durée textuelle en nombre de mois."""
+    if not duration_str or duration_str == "Not found":
+        return 0
+    
+    s = duration_str.lower().strip()
+    total_months = 0
+    
+    # Pattern "X ans et Y mois"
+    match = re.search(r'(\d+)\s*an', s)
+    if match:
+        total_months += int(match.group(1)) * 12
+    
+    # Pattern "X mois" (standalone ou dans "X ans et Y mois")
+    match = re.search(r'(\d+)\s*mois', s)
+    if match:
+        total_months += int(match.group(1))
+    
+    # Si on n'a trouvé que des années sans mois supplémentaires
+    if total_months == 0:
+        match = re.search(r'(\d+)', s)
+        if match:
+            n = int(match.group(1))
+            if 'an' in s or 'year' in s:
+                total_months = n * 12
+            elif 'mois' in s or 'month' in s:
+                total_months = n
+    
+    return total_months
+
+
+def compute_arr_tcv(result: Dict) -> Dict:
+    """
+    Calcule ARR prix plein, ARR réel année 1, TCV théorique, TCV réel
+    à partir du MRR standard et des données du contrat.
+    
+    IFRS 15 : ces métriques permettent au DAF de vérifier l'écart
+    entre ce qui aurait dû être facturé (TCV théorique) et ce qui
+    l'a réellement été (TCV réel).
+    """
+    if not isinstance(result, dict):
+        return result
+
+    # --- Récupération des données de base ---
+    mrr_standard = 0
+    try:
+        mrr_standard = float(result.get("MRR standard", 0) or 0)
+    except (ValueError, TypeError):
+        mrr_standard = 0
+
+    duration_str = result.get("Durée du Contrat", "")
+    duration_months = _duration_to_months(duration_str)
+
+    ramp_up_impact = 0
+    try:
+        ramp_up_impact = float(result.get("Ramp up price impact € vs TCV", 0) or 0)
+    except (ValueError, TypeError):
+        ramp_up_impact = 0
+
+    ramp_reason = _norm(result.get("Ramp up price", ""))
+    price_rampup = _norm(result.get("Price Ramp-up", "no"))
+
+    # Valeurs par défaut
+    arr_prix_plein = 0
+    tcv_theorique = 0
+    tcv_reel = 0
+
+    if mrr_standard > 0:
+        # ARR prix plein = MRR standard × 12 (revenu annuel au prix plein)
+        arr_prix_plein = round(mrr_standard * 12)
+
+        if duration_months > 0:
+            # TCV théorique = MRR standard × durée totale en mois
+            tcv_theorique = round(mrr_standard * duration_months)
+
+            # TCV réel = TCV théorique - écart ramp-up commercial
+            # Si ramp-up périmètre seul → pas d'écart commercial → TCV réel = TCV théorique
+            pure_perimeter = ramp_reason in {
+                "périmètre", "perimetre", "périmetre", "scope", "perimeter"
+            }
+            no_rampup = price_rampup in {"no", "non", ""}
+
+            if pure_perimeter or no_rampup:
+                tcv_reel = tcv_theorique
+            else:
+                tcv_reel = round(tcv_theorique - ramp_up_impact)
+                # Sanity check : TCV réel ne peut pas être négatif
+                tcv_reel = max(0, tcv_reel)
+
+    result["ARR prix plein"] = arr_prix_plein
+    result["TCV théorique"] = tcv_theorique
+    result["TCV réel"] = tcv_reel
+
+    return result
+
+
 def apply_ifrs_rules(result: Dict, agi_threshold: float) -> Dict:
     if not isinstance(result, dict):
         return result
@@ -16,8 +112,7 @@ def apply_ifrs_rules(result: Dict, agi_threshold: float) -> Dict:
     ifrs_key = "IFRS 15 AGI"
 
     pure_perimeter_values = {
-        "périmètre", "perimetre", "périmetre",
-        "scope", "perimeter"
+        "périmètre", "perimetre", "périmetre", "scope", "perimeter"
     }
 
     if ramp_reason in pure_perimeter_values:
@@ -43,13 +138,10 @@ def apply_ifrs_rules(result: Dict, agi_threshold: float) -> Dict:
 def _extract_money_amounts(text: str) -> list:
     if not text:
         return []
-
     candidates = re.findall(
         r"(\d{1,3}(?:[ \.,]\d{3})*(?:[ \.,]\d+)?)\s*(€|euros|euro)\b",
-        text,
-        flags=re.IGNORECASE
+        text, flags=re.IGNORECASE
     )
-
     nums = []
     for number_str, _unit in candidates:
         s = number_str.strip().replace(" ", "").replace(",", "").replace(".", "")
@@ -57,7 +149,6 @@ def _extract_money_amounts(text: str) -> list:
             nums.append(int(s))
         except Exception:
             pass
-
     return nums
 
 
@@ -66,12 +157,10 @@ def format_duration_human(result: Dict) -> Dict:
         return result
 
     duration_str = result.get("Durée du Contrat", "")
-
     if not duration_str or duration_str == "Not found":
         return result
 
     match = re.search(r'(\d+)\s*(mois|months|ans|years)', duration_str, re.IGNORECASE)
-
     if not match:
         return result
 
@@ -124,16 +213,14 @@ def fix_setup_fees(result: Dict, evidence: Dict | None = None) -> Dict:
 
 def validate_result_quality(result: Dict) -> Dict:
     date_fields = ["Date signature", "SaaS Start Date", "End date théorique"]
-
     for field in date_fields:
         date_value = result.get(field, "")
         if date_value and date_value not in ["Not found", "N/A", ""]:
             if not re.match(r'\d{2}/\d{2}/\d{4}', date_value):
                 result[field] = "Not found"
-                if "reasoning" in result:
-                    result["reasoning"] += f"\n {field} invalide (format non DD/MM/YYYY) → Not found"
 
-    amount_fields = ["Ramp up price impact € vs TCV", "Setup fees €"]
+    amount_fields = ["Ramp up price impact € vs TCV", "Setup fees €", "MRR standard",
+                     "ARR prix plein", "TCV théorique", "TCV réel"]
     for field in amount_fields:
         amount = result.get(field, 0)
         try:
@@ -186,7 +273,7 @@ def analyze_contract_real(
 ) -> Tuple[Dict, Dict]:
     """
     Analyse réelle avec AWS Bedrock + Textract + S3
-    VERSION MULTI-DOCS INTELLIGENT
+    VERSION MULTI-DOCS INTELLIGENT avec calcul ARR/TCV
     """
 
     aws = AWSServices()
@@ -231,13 +318,15 @@ def analyze_contract_real(
         all_text = list(texts_dict.values())[0]
         result, evidence = aws.analyze_with_bedrock(all_text, agi_threshold, contract_label)
 
+    # Post-processing dans l'ordre logique
     result = sanitize_rampup_value(result)
     result = apply_ifrs_rules(result, agi_threshold)
     result = fix_setup_fees(result, evidence)
     result = format_duration_human(result)
+    result = compute_arr_tcv(result)      # ← Calcul ARR/TCV après format_duration_human
     result = validate_result_quality(result)
 
-    progress_bar.progress(1.0, text="Analyse terminée ")
+    progress_bar.progress(1.0, text="Analyse terminée ✅")
     status_text.text("Analyse terminée avec succès")
 
     evidence['uploaded_files'] = uploaded_files

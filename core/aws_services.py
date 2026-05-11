@@ -262,6 +262,7 @@ Setup fees ambigus → Setup fees = "No", Setup fees € = 0
 - Ramp up price impact € vs TCV → 0
 - Ramp-up price % TCV → 0
 - Price Ramp-up → "No" (si aucune méthode ne détecte de ramp-up)
+- MRR standard → 0
 
 ═══════════════════════════════════════════════════════════════════
  RÈGLE CRITIQUE - CALCUL TCV RAMP-UP
@@ -895,6 +896,28 @@ Consulting (si lié au setup)
 - Si aucun montant trouvé → 0
 
 ═══════════════════════════════════════════════════════════════════
+ NOUVEAU CHAMP - MRR STANDARD (PRIX PLEIN MENSUEL)
+═══════════════════════════════════════════════════════════════════
+
+**MRR STANDARD : Le loyer mensuel au prix plein, sans aucune remise.**
+
+C'est le montant mensuel que le client paie à taux plein (prix stabilisé fin de contrat).
+
+**MÉTHODE D'IDENTIFICATION :**
+1. Cherche le tableau de prix le PLUS ÉLEVÉ (sans remise, sans mention "Year 1 only")
+2. Si plusieurs tableaux (Year 1, Year 2-3...) → prendre le tableau "Run rate" ou dernière période
+3. MRR standard = SOMME des "Total Monthly Price" du tableau prix plein
+
+**EXEMPLES :**
+Tableau Year 1 (remisé) : Total = 3 500€/mois
+Tableau Year 2-3 (prix plein) : Total = 4 500€/mois ← MRR STANDARD = 4500
+- Si UN SEUL tableau → MRR standard = total de ce tableau
+- Si calendrier de facturation annuel → divise le montant stabilisé par 12
+- Si vraiment introuvable → 0
+
+**RETOURNE uniquement le nombre (ex: 8750)**
+
+═══════════════════════════════════════════════════════════════════
 INSTRUCTIONS SPÉCIALES - TABLEAUX
 ═══════════════════════════════════════════════════════════════════
 
@@ -973,6 +996,7 @@ RÉPONDS UNIQUEMENT avec ce JSON (SANS ```json, SANS texte avant/après):
     "Durée du Contrat": "3 ans",
     "Price Ramp-up": "Yes",
     "Ramp up price": "Périmètre + Commercial",
+    "MRR standard": 8750,
     "Ramp up price impact € vs TCV": 24000,
     "Ramp-up price % TCV": 11.11,
     "IFRS 15 AGI": "No",

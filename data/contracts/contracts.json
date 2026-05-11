@@ -524,8 +524,157 @@
       ],
       "timestamp": "2026-04-22T12:49:55.387389",
       "id": 9
+    },
+    {
+      "reasoning": "Analyse du contrat SaaS FuturMaster / Euro Disney (Réf. 4600006884). Le contrat est signé le 13/02/2025 via DocuSign. Durée de 36 mois avec tacite reconduction annuelle. Le projet se déroule en 2 phases : Phase 1 (FM Demand Management) à 5 875€/mois et Phase 2 (FM Optimized Planning) à 5 795€/mois. Les deux phases correspondent à des modules distincts déployés progressivement. RAMP-UP ANALYSIS: Q.A (Commercial?) → NON : Les prix unitaires sont identiques entre les phases (Full use = 350€/utilisateur dans les deux tableaux, Viewer = 10€/utilisateur dans les deux). Il n'y a aucune mention de remise temporaire, geste commercial, ou prix promotionnel qui disparaîtrait. Les prix sont décrits comme 'fermes, forfaitaires et non-révisables' (Article 8.1). La révision SYNTEC ne s'applique qu'à partir de la 2ème année contractuelle et est une indexation standard, pas un ramp-up. Q.B (Périmètre?) → OUI : Le contrat stipule explicitement 'Le projet se déroulera en 2 phases : Phase 1 : FM Demand Management / Phase 2 : FM Optimized Planning'. Phase 2 AJOUTE un module (Optimized Planning avec 12 Full users + 10 Viewers + Application Server) en plus de Phase 1 (Demand Management). C'est une extension progressive du périmètre. Le macro-planning montre que les sprints 1-2 concernent la prévision, puis les sprints 3-7 ajoutent les fonctionnalités DRP/optimisation. Comme il s'agit d'un ramp-up purement Périmètre (sans composante commerciale), l'écart TCV = 0. MRR STANDARD: Phase 1 (5 875€) + Phase 2 (5 795€) = 11 670€/mois quand les deux phases sont actives. Setup fees: 6 000€ (setup FM Cloud Services) + 276 496€ (implémentation forfaitaire) = 282 496€. La TMA est optionnelle et non incluse dans le calcul de base.",
+      "sources": {
+        "Date signature": "Page 17 - '13-févr.-2025 13:56:41 CET' à côté de 'Fait à Chessy (77), le' avec DocuSigned by azoulay Philippe et ZEROUAL Yacine",
+        "Scope": "Page 40-41 - Tableaux 'Phase 1 : FM Demand Management' et 'Phase 2 : FM Optimized Planning' dans Annexe 7 Conditions Financières",
+        "Price Ramp-up": "Page 40-41 - Deux tableaux de prix séparés Phase 1 (5 875€/mois) et Phase 2 (5 795€/mois) avec modules différents",
+        "Ramp up price": "Q.A → NON : Prix unitaires identiques (Full use 350€, Viewer 10€) dans les deux phases. Aucune remise temporaire mentionnée. Article 8.1 : 'prix fermes, forfaitaires et non-révisables'. Q.B → OUI : 'Le projet se déroulera en 2 phases : Phase 1 : FM Demand Management / Phase 2 : FM Optimized Planning' (p.41). Phase 2 ajoute Optimized Planning (12 Full + 10 Viewer + App Server) à Phase 1. → Périmètre",
+        "Setup fees": "Page 42 - 'Coût du Setup du FM Cloud Services : forfait de 6.000 euros' + 'Coût d'implémentation : montant global et forfaitaire de 276 496 euros'",
+        "TCV": "MRR standard (plein déploiement) = Phase 1 (5 875€) + Phase 2 (5 795€) = 11 670€/mois. Ramp-up uniquement Périmètre donc écart commercial = 0€",
+        "Durée": "Page 4 - Article 3 : 'Le Contrat entrera en vigueur à compter de sa date de signature pour une durée de 36 mois'"
+      },
+      "Client Name": "Euro Disney Associés S.A.S.",
+      "Type de contrat": "SaaS",
+      "Contrat format Sunstice": "No",
+      "Date signature": "13/02/2025",
+      "Scope": "Demand, Supply",
+      "Durée du Contrat": "3 ans",
+      "Price Ramp-up": "Yes",
+      "Ramp up price": "Périmètre",
+      "MRR standard": 11670,
+      "Ramp up price impact € vs TCV": 0,
+      "Ramp-up price % TCV": 0,
+      "IFRS 15 AGI": "Yes",
+      "Option Sortie avant terme du contrat": "Résiliation pour faute avec mise en demeure de 30 jours (Article 18). Résiliation immédiate en cas de manquement grave. Dénonciation avec préavis de 3 mois avant échéance ou date anniversaire (Article 3). Pas de résiliation pour convenance sans motif.",
+      "SaaS Start Date": "13/02/2025",
+      "Start date ignition": "13/02/2025",
+      "End date théorique": "12/02/2028",
+      "Setup fees": "Yes",
+      "Setup fees €": 276496,
+      "ARR prix plein": 140040,
+      "TCV théorique": 420120,
+      "TCV réel": 420120,
+      "evidence": {
+        "mode": "bedrock",
+        "model": "global.anthropic.claude-opus-4-6-v1",
+        "text_length": 182359,
+        "response_full": "\n\n{\n    \"reasoning\": \"Analyse du contrat SaaS FuturMaster / Euro Disney (Réf. 4600006884). Le contrat est signé le 13/02/2025 via DocuSign. Durée de 36 mois avec tacite reconduction annuelle. Le projet se déroule en 2 phases : Phase 1 (FM Demand Management) à 5 875€/mois et Phase 2 (FM Optimized Planning) à 5 795€/mois. Les deux phases correspondent à des modules distincts déployés progressivement. RAMP-UP ANALYSIS: Q.A (Commercial?) → NON : Les prix unitaires sont identiques entre les phases (Full use = 350€/utilisateur dans les deux tableaux, Viewer = 10€/utilisateur dans les deux). Il n'y a aucune mention de remise temporaire, geste commercial, ou prix promotionnel qui disparaîtrait. Les prix sont décrits comme 'fermes, forfaitaires et non-révisables' (Article 8.1). La révision SYNTEC ne s'applique qu'à partir de la 2ème année contractuelle et est une indexation standard, pas un ramp-up. Q.B (Périmètre?) → OUI : Le contrat stipule explicitement 'Le projet se déroulera en 2 phases : Phase 1 : FM Demand Management / Phase 2 : FM Optimized Planning'. Phase 2 AJOUTE un module (Optimized Planning avec 12 Full users + 10 Viewers + Application Server) en plus de Phase 1 (Demand Management). C'est une extension progressive du périmètre. Le macro-planning montre que les sprints 1-2 concernent la prévision, puis les sprints 3-7 ajoutent les fonctionnalités DRP/optimisation. Comme il s'agit d'un ramp-up purement Périmètre (sans composante commerciale), l'écart TCV = 0. MRR STANDARD: Phase 1 (5 875€) + Phase 2 (5 795€) = 11 670€/mois quand les deux phases sont actives. Setup fees: 6 000€ (setup FM Cloud Services) + 276 496€ (implémentation forfaitaire) = 282 496€. La TMA est optionnelle et non incluse dans le calcul de base.\",\n    \"sources\": {\n        \"Date signature\": \"Page 17 - '13-févr.-2025 13:56:41 CET' à côté de 'Fait à Chessy (77), le' avec DocuSigned by azoulay Philippe et ZEROUAL Yacine\",\n        \"Scope\": \"Page 40-41 - Tableaux 'Phase 1 : FM Demand Management' et 'Phase 2 : FM Optimized Planning' dans Annexe 7 Conditions Financières\",\n        \"Price Ramp-up\": \"Page 40-41 - Deux tableaux de prix séparés Phase 1 (5 875€/mois) et Phase 2 (5 795€/mois) avec modules différents\",\n        \"Ramp up price\": \"Q.A → NON : Prix unitaires identiques (Full use 350€, Viewer 10€) dans les deux phases. Aucune remise temporaire mentionnée. Article 8.1 : 'prix fermes, forfaitaires et non-révisables'. Q.B → OUI : 'Le projet se déroulera en 2 phases : Phase 1 : FM Demand Management / Phase 2 : FM Optimized Planning' (p.41). Phase 2 ajoute Optimized Planning (12 Full + 10 Viewer + App Server) à Phase 1. → Périmètre\",\n        \"Setup fees\": \"Page 42 - 'Coût du Setup du FM Cloud Services : forfait de 6.000 euros' + 'Coût d'implémentation : montant global et forfaitaire de 276 496 euros'\",\n        \"TCV\": \"MRR standard (plein déploiement) = Phase 1 (5 875€) + Phase 2 (5 795€) = 11 670€/mois. Ramp-up uniquement Périmètre donc écart commercial = 0€\",\n        \"Durée\": \"Page 4 - Article 3 : 'Le Contrat entrera en vigueur à compter de sa date de signature pour une durée de 36 mois'\"\n    },\n    \"Client Name\": \"Euro Disney Associés S.A.S.\",\n    \"Type de contrat\": \"SaaS\",\n    \"Contrat format Sunstice\": \"No\",\n    \"Date signature\": \"13/02/2025\",\n    \"Scope\": \"Demand, Supply\",\n    \"Durée du Contrat\": \"36 mois\",\n    \"Price Ramp-up\": \"Yes\",\n    \"Ramp up price\": \"Périmètre\",\n    \"MRR standard\": 11670,\n    \"Ramp up price impact € vs TCV\": 0,\n    \"Ramp-up price % TCV\": 0,\n    \"IFRS 15 AGI\": \"Yes\",\n    \"Option Sortie avant terme du contrat\": \"Résiliation pour faute avec mise en demeure de 30 jours (Article 18). Résiliation immédiate en cas de manquement grave. Dénonciation avec préavis de 3 mois avant échéance ou date anniversaire (Article 3). Pas de résiliation pour convenance sans motif.\",\n    \"SaaS Start Date\": \"13/02/2025\",\n    \"Start date ignition\": \"13/02/2025\",\n    \"End date théorique\": \"12/02/2028\",\n    \"Setup fees\": \"Yes\",\n    \"Setup fees €\": 282496\n}",
+        "timestamp": "2026-05-11T11:22:48.414302",
+        "uploaded_files": [
+          "s3://ifrs15-contracts-sunstice-us/contracts/Disney/Disney - FM_4600006884.docx.pdf"
+        ],
+        "total_files": 1,
+        "text_extracted_length": 182359,
+        "documents_types": [
+          "Unknown (Disney - FM_4600006884.docx.pdf)"
+        ]
+      },
+      "files": [
+        "Disney - FM_4600006884.docx.pdf"
+      ],
+      "timestamp": "2026-05-11T11:22:48.439125",
+      "id": 10
+    },
+    {
+      "reasoning": "Analyse multi-documents du contrat NUTRITION & SANTE avec FuturMaster. Le contrat SaaS (Annexe A) définit une période initiale de 64 mois du 01/09/2021 au 31/12/2026. Les services incluent Demand Management, Supply Planning, Trade Promotion Management & Optimization, et Cloud Services. Le contrat MSA couvre les services professionnels (implémentation). Un contrat Customer Experience complémentaire a été signé le 08/04/2025 pour la période 01/01/2025-31/12/2025. RAMP-UP ANALYSIS: Q.A (Commercial?) → OUI : L'Annexe A mentionne une remise commerciale de 16% conditionnée à la commande de l'ensemble des services dans un délai de 36 mois. Le calendrier prévisionnel montre des montants croissants puis stables : 01/09/2021 (montant non précisé), 01/01/2022: 89 620€, 01/01/2023: 129 578€, 01/01/2024: 131 695€, 01/01/2025: 131 695€ (stable). La facturation démarre à l'activation de chaque service, ce qui explique la progression. De plus, la remise de 16% est conditionnelle et peut être retirée si les conditions ne sont pas remplies dans les 36 mois, avec facturation rétroactive du montant cumulé. Le fait que les montants augmentent de 89 620€ à 131 695€ puis se stabilisent indique un ramp-up. Q.B (Périmètre?) → OUI : L'Annexe E (Feature List) montre un déploiement progressif des modules - Demand Planning, Trade Promo, S&OP en octobre 2021, puis Supply Planning et Procurement en septembre 2022. Les services sont activés indépendamment selon les besoins du client, ce qui constitue une extension progressive du périmètre. Le SOW confirme l'allotissement en phases : Module 1a (Demand), Module 1c (TPX), Module 2a/2b (Supply Planning), Module 3 (S&OP Supply Review). Conclusion: Périmètre + Commercial. CALCUL MRR STANDARD: Les prix unitaires mensuels (avant remise de 16%) sont: Core Application Server 1040€, TPM&O 1090€, Demand Management 1190€, Supply Planning 1790€, Cloud Services 2000€, Full Use 350€×19=6650€, Collaborative Use 80€×28=2240€, Viewer Use 10€×20=200€, IT Use 350€×2=700€ (dont 2 offerts). Total mensuel avant remise = 1040+1090+1190+1790+2000+6650+2240+200+700 = 16 900€/mois. Avec remise 16%: 16 900 × 0.84 = 14 196€/mois. Mais 2 IT Use sont offerts (700€/mois), donc le MRR standard au prix catalogue serait 16 900€/mois. Le TCV prévisionnel est explicitement de 650 033€ HT. Le calendrier de facturation totalise: 89 620 + 129 578 + 131 695 + 131 695 = 482 588€ (les montants 01/09/2021 et 31/01/2026 ne sont pas précisés dans le texte extrait mais le total doit atteindre 650 033€, donc environ 167 445€ restants). Le MRR standard à prix plein (quantités cibles, sans remise, sans IT offerts) = 16 900€/mois. Mais le MRR effectif stabilisé semble être environ 131 695€/12 ≈ 10 974€/mois. Pour le calcul IFRS15, le TCV théorique basé sur le MRR stabilisé (131 695€/an) sur 64 mois = 131 695/12 × 64 = 702 373€. Le TCV réel est 650 033€. Écart = 702 373 - 650 033 = 52 340€. Pourcentage = 52 340/702 373 = 7.45%. Setup fees: Annexe A mentionne 'le prix global de la Modalité de Mise en Place du Service est de deux mille euros hors taxes'. Le SOW (Annexe 1 du MSA) contient des prestations de services professionnels facturées séparément sous le contrat MSA. Le contrat Customer Experience ajoute 24 750€ HT/an mais c'est un contrat séparé.",
+      "sources": {
+        "Date signature": "Annexe A - 'Fait à Revel, le 23/07/2021' avec DocuSigned by Luis URIBE et Yacine ZEROUAL",
+        "Scope": "Annexe A - Tableau des services: FuturMaster Demand Management (S&OP Demand Review), FuturMaster Supply Planning, FuturMaster Trade Promotion Management & Optimization. SOW Section 3.2: Module 1a Demand, Module 1c TPX, Module 2a/2b Supply Planning, Module 3 S&OP Supply Review",
+        "Price Ramp-up": "Annexe A - Calendrier prévisionnel progressif: 01/01/2022: 89 620€, 01/01/2023: 129 578€, 01/01/2024: 131 695€ (stable). Remise conditionnelle de 16% et activation progressive des services",
+        "Ramp up price": "Q.A → OUI: Annexe A - 'remise commerciale de 16%' conditionnée au délai de 36 mois + calendrier facturation croissant (89 620€ → 129 578€ → 131 695€ stable). Q.B → OUI: Annexe E Feature List - 'Demand Planning octobre-2021, Supply planning septembre-2022'. SOW Section 3.2 allotissement en phases progressives. → Périmètre + Commercial",
+        "Setup fees": "Annexe A - 'le prix global de la Modalité de Mise en Place du Service est de deux mille euros hors taxes pour l'ensemble des Services'",
+        "TCV": "Annexe A - 'Le montant total prévisionnel des loyers sur la Période Initiale du Contrat est de six-cent-cinquante mille trente-trois euros hors taxes (650 033 €HT)'. MRR stabilisé = 131 695/12 = 10 974€/mois. TCV théorique = 10 974 × 64 = 702 373€. Écart = 702 373 - 650 033 = 52 340€",
+        "Durée": "Annexe A - 'Le présent Contrat est valable pour une durée de soixante-quatre (64) mois à compter du 01/09/2021 jusqu'au 31/12/2026 (la Période Initiale)'"
+      },
+      "Client Name": "NUTRITION & SANTE",
+      "Type de contrat": "SaaS",
+      "Contrat format Sunstice": "No",
+      "Date signature": "23/07/2021",
+      "Scope": "Demand, Supply, TPX",
+      "Durée du Contrat": "5 ans et 4 mois",
+      "Price Ramp-up": "Yes",
+      "Ramp up price": "Périmètre + Commercial",
+      "MRR standard": 10974,
+      "Ramp up price impact € vs TCV": 52340,
+      "Ramp-up price % TCV": 7.45,
+      "IFRS 15 AGI": "Yes",
+      "Option Sortie avant terme du contrat": "Au terme de la Période Initiale, chacune des Parties pourra mettre fin au Contrat à tout moment sous réserve du respect d'un délai de préavis de 8 mois par lettre recommandée avec accusé réception. Résiliation possible en cas de manquement grave avec mise en demeure de 15 jours (contrat SaaS) ou 30 jours (contrat MSA). Résiliation possible en cas de faille de sécurité persistante après mise en demeure de 15 jours.",
+      "SaaS Start Date": "01/09/2021",
+      "Start date ignition": "01/09/2021",
+      "End date théorique": "31/12/2026",
+      "Setup fees": "Yes",
+      "Setup fees €": 2000,
+      "ARR prix plein": 131688,
+      "TCV théorique": 702336,
+      "TCV réel": 649996,
+      "evidence": {
+        "mode": "bedrock_multi_docs",
+        "model": "global.anthropic.claude-opus-4-6-v1",
+        "documents_analyzed": [
+          "Unknown (0.1_Annexe_A_(Contrat_SAAS)_Conditions_particulières.docx.pdf)",
+          "Unknown (0.2_Annexe_B_(Contrat_SAAS)_Descriptif_service_FM_Cloud_Services.docx.pdf)",
+          "Unknown (0.3_Annexe_C_(Contrat_SAAS)_Modalités_de_Mise_en_Place_du_Service_VF.docx.pdf)",
+          "Unknown (0.4_Annexe_D_(Contrat_SAAS)_Prérequis_Client.docx.pdf)",
+          "Unknown (0.5_Annexe_E_(Contrat_SAAS)_FuturMaster_Feature_List_du_19022021.pdf)",
+          "Unknown (0.6_Annexe_F_(Contrat_SAAS)_Futurmaster_cloud_services_technical.pdf)",
+          "Unknown (0_Contrat_SAAS_FuturMaster_N&S_23072021.docx.pdf)",
+          "Unknown (1.1_Annexe_1_(Contrat_MSA)_Statement_Of_Work_(SOW).docx.pdf)",
+          "Unknown (1.2_Annexe_2_(Contrat_MSA)_Plan_d'Assurance_Qualité_(PAQ).docx.pdf)",
+          "Unknown (1_Contrat_MSA_FuturMaster_N&S_23072021.docx.pdf)",
+          "Unknown (Contrat N&S_CUSTOMER EXPERIENCE_FuturMaster_01012025.docx.pdf)"
+        ],
+        "total_text_length": 413140,
+        "response_full": "{\n    \"reasoning\": \"Analyse multi-documents du contrat NUTRITION & SANTE avec FuturMaster. Le contrat SaaS (Annexe A) définit une période initiale de 64 mois du 01/09/2021 au 31/12/2026. Les services incluent Demand Management, Supply Planning, Trade Promotion Management & Optimization, et Cloud Services. Le contrat MSA couvre les services professionnels (implémentation). Un contrat Customer Experience complémentaire a été signé le 08/04/2025 pour la période 01/01/2025-31/12/2025. RAMP-UP ANALYSIS: Q.A (Commercial?) → OUI : L'Annexe A mentionne une remise commerciale de 16% conditionnée à la commande de l'ensemble des services dans un délai de 36 mois. Le calendrier prévisionnel montre des montants croissants puis stables : 01/09/2021 (montant non précisé), 01/01/2022: 89 620€, 01/01/2023: 129 578€, 01/01/2024: 131 695€, 01/01/2025: 131 695€ (stable). La facturation démarre à l'activation de chaque service, ce qui explique la progression. De plus, la remise de 16% est conditionnelle et peut être retirée si les conditions ne sont pas remplies dans les 36 mois, avec facturation rétroactive du montant cumulé. Le fait que les montants augmentent de 89 620€ à 131 695€ puis se stabilisent indique un ramp-up. Q.B (Périmètre?) → OUI : L'Annexe E (Feature List) montre un déploiement progressif des modules - Demand Planning, Trade Promo, S&OP en octobre 2021, puis Supply Planning et Procurement en septembre 2022. Les services sont activés indépendamment selon les besoins du client, ce qui constitue une extension progressive du périmètre. Le SOW confirme l'allotissement en phases : Module 1a (Demand), Module 1c (TPX), Module 2a/2b (Supply Planning), Module 3 (S&OP Supply Review). Conclusion: Périmètre + Commercial. CALCUL MRR STANDARD: Les prix unitaires mensuels (avant remise de 16%) sont: Core Application Server 1040€, TPM&O 1090€, Demand Management 1190€, Supply Planning 1790€, Cloud Services 2000€, Full Use 350€×19=6650€, Collaborative Use 80€×28=2240€, Viewer Use 10€×20=200€, IT Use 350€×2=700€ (dont 2 offerts). Total mensuel avant remise = 1040+1090+1190+1790+2000+6650+2240+200+700 = 16 900€/mois. Avec remise 16%: 16 900 × 0.84 = 14 196€/mois. Mais 2 IT Use sont offerts (700€/mois), donc le MRR standard au prix catalogue serait 16 900€/mois. Le TCV prévisionnel est explicitement de 650 033€ HT. Le calendrier de facturation totalise: 89 620 + 129 578 + 131 695 + 131 695 = 482 588€ (les montants 01/09/2021 et 31/01/2026 ne sont pas précisés dans le texte extrait mais le total doit atteindre 650 033€, donc environ 167 445€ restants). Le MRR standard à prix plein (quantités cibles, sans remise, sans IT offerts) = 16 900€/mois. Mais le MRR effectif stabilisé semble être environ 131 695€/12 ≈ 10 974€/mois. Pour le calcul IFRS15, le TCV théorique basé sur le MRR stabilisé (131 695€/an) sur 64 mois = 131 695/12 × 64 = 702 373€. Le TCV réel est 650 033€. Écart = 702 373 - 650 033 = 52 340€. Pourcentage = 52 340/702 373 = 7.45%. Setup fees: Annexe A mentionne 'le prix global de la Modalité de Mise en Place du Service est de deux mille euros hors taxes'. Le SOW (Annexe 1 du MSA) contient des prestations de services professionnels facturées séparément sous le contrat MSA. Le contrat Customer Experience ajoute 24 750€ HT/an mais c'est un contrat séparé.\",\n    \"sources\": {\n        \"Date signature\": \"Annexe A - 'Fait à Revel, le 23/07/2021' avec DocuSigned by Luis URIBE et Yacine ZEROUAL\",\n        \"Scope\": \"Annexe A - Tableau des services: FuturMaster Demand Management (S&OP Demand Review), FuturMaster Supply Planning, FuturMaster Trade Promotion Management & Optimization. SOW Section 3.2: Module 1a Demand, Module 1c TPX, Module 2a/2b Supply Planning, Module 3 S&OP Supply Review\",\n        \"Price Ramp-up\": \"Annexe A - Calendrier prévisionnel progressif: 01/01/2022: 89 620€, 01/01/2023: 129 578€, 01/01/2024: 131 695€ (stable). Remise conditionnelle de 16% et activation progressive des services\",\n        \"Ramp up price\": \"Q.A → OUI: Annexe A - 'remise commerciale de 16%' conditionnée au délai de 36 mois + calendrier facturation croissant (89 620€ → 129 578€ → 131 695€ stable). Q.B → OUI: Annexe E Feature List - 'Demand Planning octobre-2021, Supply planning septembre-2022'. SOW Section 3.2 allotissement en phases progressives. → Périmètre + Commercial\",\n        \"Setup fees\": \"Annexe A - 'le prix global de la Modalité de Mise en Place du Service est de deux mille euros hors taxes pour l'ensemble des Services'\",\n        \"TCV\": \"Annexe A - 'Le montant total prévisionnel des loyers sur la Période Initiale du Contrat est de six-cent-cinquante mille trente-trois euros hors taxes (650 033 €HT)'. MRR stabilisé = 131 695/12 = 10 974€/mois. TCV théorique = 10 974 × 64 = 702 373€. Écart = 702 373 - 650 033 = 52 340€\",\n        \"Durée\": \"Annexe A - 'Le présent Contrat est valable pour une durée de soixante-quatre (64) mois à compter du 01/09/2021 jusqu'au 31/12/2026 (la Période Initiale)'\"\n    },\n    \"Client Name\": \"NUTRITION & SANTE\",\n    \"Type de contrat\": \"SaaS\",\n    \"Contrat format Sunstice\": \"No\",\n    \"Date signature\": \"23/07/2021\",\n    \"Scope\": \"Demand, Supply, TPX\",\n    \"Durée du Contrat\": \"64 mois\",\n    \"Price Ramp-up\": \"Yes\",\n    \"Ramp up price\": \"Périmètre + Commercial\",\n    \"MRR standard\": 10974,\n    \"Ramp up price impact € vs TCV\": 52340,\n    \"Ramp-up price % TCV\": 7.45,\n    \"IFRS 15 AGI\": \"Yes\",\n    \"Option Sortie avant terme du contrat\": \"Au terme de la Période Initiale, chacune des Parties pourra mettre fin au Contrat à tout moment sous réserve du respect d'un délai de préavis de 8 mois par lettre recommandée avec accusé réception. Résiliation possible en cas de manquement grave avec mise en demeure de 15 jours (contrat SaaS) ou 30 jours (contrat MSA). Résiliation possible en cas de faille de sécurité persistante après mise en demeure de 15 jours.\",\n    \"SaaS Start Date\": \"01/09/2021\",\n    \"Start date ignition\": \"01/09/2021\",\n    \"End date théorique\": \"31/12/2026\",\n    \"Setup fees\": \"Yes\",\n    \"Setup fees €\": 2000\n}",
+        "timestamp": "2026-05-11T11:28:04.152836",
+        "uploaded_files": [
+          "s3://ifrs15-contracts-sunstice-us/contracts/NUTRITION ET SANTE FRANCE/0.1_Annexe_A_(Contrat_SAAS)_Conditions_particulières.docx.pdf",
+          "s3://ifrs15-contracts-sunstice-us/contracts/NUTRITION ET SANTE FRANCE/0.2_Annexe_B_(Contrat_SAAS)_Descriptif_service_FM_Cloud_Services.docx.pdf",
+          "s3://ifrs15-contracts-sunstice-us/contracts/NUTRITION ET SANTE FRANCE/0.3_Annexe_C_(Contrat_SAAS)_Modalités_de_Mise_en_Place_du_Service_VF.docx.pdf",
+          "s3://ifrs15-contracts-sunstice-us/contracts/NUTRITION ET SANTE FRANCE/0.4_Annexe_D_(Contrat_SAAS)_Prérequis_Client.docx.pdf",
+          "s3://ifrs15-contracts-sunstice-us/contracts/NUTRITION ET SANTE FRANCE/0.5_Annexe_E_(Contrat_SAAS)_FuturMaster_Feature_List_du_19022021.pdf",
+          "s3://ifrs15-contracts-sunstice-us/contracts/NUTRITION ET SANTE FRANCE/0.6_Annexe_F_(Contrat_SAAS)_Futurmaster_cloud_services_technical.pdf",
+          "s3://ifrs15-contracts-sunstice-us/contracts/NUTRITION ET SANTE FRANCE/0_Contrat_SAAS_FuturMaster_N&S_23072021.docx.pdf",
+          "s3://ifrs15-contracts-sunstice-us/contracts/NUTRITION ET SANTE FRANCE/1.1_Annexe_1_(Contrat_MSA)_Statement_Of_Work_(SOW).docx.pdf",
+          "s3://ifrs15-contracts-sunstice-us/contracts/NUTRITION ET SANTE FRANCE/1.2_Annexe_2_(Contrat_MSA)_Plan_d'Assurance_Qualité_(PAQ).docx.pdf",
+          "s3://ifrs15-contracts-sunstice-us/contracts/NUTRITION ET SANTE FRANCE/1_Contrat_MSA_FuturMaster_N&S_23072021.docx.pdf",
+          "s3://ifrs15-contracts-sunstice-us/contracts/NUTRITION ET SANTE FRANCE/Contrat N&S_CUSTOMER EXPERIENCE_FuturMaster_01012025.docx.pdf"
+        ],
+        "total_files": 11,
+        "text_extracted_length": 413140,
+        "documents_types": [
+          "Unknown (0.1_Annexe_A_(Contrat_SAAS)_Conditions_particulières.docx.pdf)",
+          "Unknown (0.2_Annexe_B_(Contrat_SAAS)_Descriptif_service_FM_Cloud_Services.docx.pdf)",
+          "Unknown (0.3_Annexe_C_(Contrat_SAAS)_Modalités_de_Mise_en_Place_du_Service_VF.docx.pdf)",
+          "Unknown (0.4_Annexe_D_(Contrat_SAAS)_Prérequis_Client.docx.pdf)",
+          "Unknown (0.5_Annexe_E_(Contrat_SAAS)_FuturMaster_Feature_List_du_19022021.pdf)",
+          "Unknown (0.6_Annexe_F_(Contrat_SAAS)_Futurmaster_cloud_services_technical.pdf)",
+          "Unknown (0_Contrat_SAAS_FuturMaster_N&S_23072021.docx.pdf)",
+          "Unknown (1.1_Annexe_1_(Contrat_MSA)_Statement_Of_Work_(SOW).docx.pdf)",
+          "Unknown (1.2_Annexe_2_(Contrat_MSA)_Plan_d'Assurance_Qualité_(PAQ).docx.pdf)",
+          "Unknown (1_Contrat_MSA_FuturMaster_N&S_23072021.docx.pdf)",
+          "Unknown (Contrat N&S_CUSTOMER EXPERIENCE_FuturMaster_01012025.docx.pdf)"
+        ]
+      },
+      "files": [
+        "0.1_Annexe_A_(Contrat_SAAS)_Conditions_particulières.docx.pdf",
+        "0.2_Annexe_B_(Contrat_SAAS)_Descriptif_service_FM_Cloud_Services.docx.pdf",
+        "0.3_Annexe_C_(Contrat_SAAS)_Modalités_de_Mise_en_Place_du_Service_VF.docx.pdf",
+        "0.4_Annexe_D_(Contrat_SAAS)_Prérequis_Client.docx.pdf",
+        "0.5_Annexe_E_(Contrat_SAAS)_FuturMaster_Feature_List_du_19022021.pdf",
+        "0.6_Annexe_F_(Contrat_SAAS)_Futurmaster_cloud_services_technical.pdf",
+        "0_Contrat_SAAS_FuturMaster_N&S_23072021.docx.pdf",
+        "1.1_Annexe_1_(Contrat_MSA)_Statement_Of_Work_(SOW).docx.pdf",
+        "1.2_Annexe_2_(Contrat_MSA)_Plan_d'Assurance_Qualité_(PAQ).docx.pdf",
+        "1_Contrat_MSA_FuturMaster_N&S_23072021.docx.pdf",
+        "Contrat N&S_CUSTOMER EXPERIENCE_FuturMaster_01012025.docx.pdf"
+      ],
+      "timestamp": "2026-05-11T11:28:04.161328",
+      "id": 11
     }
   ],
-  "last_updated": "2026-04-22T12:49:55.388497",
-  "count": 10
+  "last_updated": "2026-05-11T11:28:04.162242",
+  "count": 12
 }
