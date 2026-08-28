@@ -498,41 +498,13 @@ with st.sidebar:
         )
 
         st.markdown(
-            f"""
-            <div style="background: white;
-                        padding: 0.75rem;
-                        border-radius: 0.5rem;
-                        border: 1px solid #e2e8f0;
-                        margin-bottom: 0.5rem;">
-
-                <div style="display: flex;
-                            justify-content: space-between;
-                            align-items: center;">
-
-                    <strong style="font-size: 0.875rem;">
-                        {client}
-                    </strong>
-
-                    <span style="background: {badge_color};
-                                 color: white;
-                                 padding: 0.25rem 0.5rem;
-                                 border-radius: 4px;
-                                 font-size: 0.7rem;">
-                        {badge_text}
-                    </span>
-
-                </div>
-
-                <div style="font-size: 0.75rem;
-                            color: #6b7280;
-                            margin-top: 0.25rem;">
-
-                    ARR : {arr_str}
-
-                </div>
-
-            </div>
-            """,
+f"""<div style="background:white;padding:0.75rem;border-radius:0.5rem;border:1px solid #e2e8f0;margin-bottom:0.5rem;">
+<div style="display:flex;justify-content:space-between;align-items:center;">
+<strong style="font-size:0.875rem;">{client}</strong>
+<span style="background:{badge_color};color:white;padding:0.25rem 0.5rem;border-radius:4px;font-size:0.7rem;">{badge_text}</span>
+</div>
+<div style="font-size:0.75rem;color:#6b7280;margin-top:0.25rem;">ARR : {arr_str}</div>
+</div>""",
             unsafe_allow_html=True
         )
 
