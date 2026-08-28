@@ -47,9 +47,24 @@ class AWSServices:
             return f"s3://{self.bucket_name}/{s3_key}"
         except Exception as e:
             raise Exception(f"Erreur upload S3: {str(e)}")
-    
+
     def extract_text_with_textract(self, s3_key: str) -> str:
-        
+        """Cache disque : le texte d'un document ne change pas d'une exécution à
+        l'autre. Sans ce cache, chaque réexécution du protocole d'évaluation
+        refacture l'intégralité de l'OCR."""
+        import hashlib
+        from pathlib import Path
+        cache = Path("evaluation/cache_textract")
+        cache.mkdir(parents=True, exist_ok=True)
+        f = cache / (hashlib.md5(s3_key.encode()).hexdigest() + ".txt")
+        if f.exists():
+            return f.read_text(encoding="utf-8")
+        texte = self._extract_text_with_textract_reel(s3_key)
+        f.write_text(texte, encoding="utf-8")
+        return texte
+
+    
+    def _extract_text_with_textract_reel(self, s3_key: str) -> str:        
         try:
             response = self.textract_client.start_document_analysis(
                 DocumentLocation={
@@ -1028,6 +1043,7 @@ RÉPONDS UNIQUEMENT avec ce JSON (SANS ```json, SANS texte avant/après):
             request_body = {
                 "anthropic_version": "bedrock-2023-05-31",
                 "max_tokens": 5000,
+                "temperature": 0,
                 "messages": [
                     {
                         "role": "user",
@@ -1082,6 +1098,7 @@ RÉPONDS UNIQUEMENT avec ce JSON (SANS ```json, SANS texte avant/après):
             request_body = {
                 "anthropic_version": "bedrock-2023-05-31",
                 "max_tokens": 5000,
+                "temperature": 0,
                 "messages": [
                     {
                         "role": "user",
